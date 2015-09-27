@@ -1,4 +1,6 @@
 
+import java.util.ArrayList;
+
 import junit.framework.*;
 
 public class TestPlayer extends TestCase {
@@ -44,5 +46,23 @@ public class TestPlayer extends TestCase {
 		flushHand.addCard("FourHearts");
 		player1.giveHand(flushHand);
 		assertEquals(6, player1.getHandScore());
+	}
+	
+	public void testGetPlayerComparativeScoreList() {
+		Player player1 = new Player();
+		Hand flushHand = new Hand();
+		// check for a flush
+		flushHand.addCard("TwoHearts");
+		flushHand.addCard("ThreeHearts");
+		flushHand.addCard("KingHearts");
+		flushHand.addCard("QueenHearts");
+		flushHand.addCard("FourHearts");
+		player1.giveHand(flushHand);
+		ArrayList<Integer> csList = player1.getComparativeScoreList();
+		assertEquals(12, csList.get(0).intValue());
+		assertEquals(11, csList.get(1).intValue());
+		assertEquals(3, csList.get(2).intValue());
+		assertEquals(2, csList.get(3).intValue());
+		assertEquals(1, csList.get(4).intValue());
 	}
 }

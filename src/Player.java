@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 public class Player {
 
@@ -19,4 +20,6 @@ public class Player {
 	public int getHandScore() {
 		return playerHand.getHandScore();
 	}
+
+	public ArrayList<Integer> getComparativeScoreList() { return playerHand.getComparativeScoreList(); }
 }
