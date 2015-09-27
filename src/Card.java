@@ -10,6 +10,7 @@ public class Card {
 	public Card() {
 		rank = "";
 		suit = "";
+		score = -1;
 	}
 	
 	// parse rankSuit into separate rank and suit, then return success or failure
