@@ -556,6 +556,24 @@ public class TestHand extends TestCase {
 		assertEquals(3, sf_scoreList.get(2).intValue());
 		assertEquals(2, sf_scoreList.get(3).intValue());
 		assertEquals(1, sf_scoreList.get(4).intValue());
+		
+		// Comparative List of Royal Flush hand
+		
+		// check abcde
+		Hand royalFlushHand = new Hand();
+		royalFlushHand.addCard("AceHearts");
+		royalFlushHand.addCard("KingHearts");
+		royalFlushHand.addCard("QueenHearts");
+		royalFlushHand.addCard("JackHearts");
+		royalFlushHand.addCard("TenHearts");
+		royalFlushHand.calculateHandScore();
+		// should return A, K, Q, J, 10 or (13, 12, 11, 10, 9)
+		ArrayList<Integer> rf_scoreList = royalFlushHand.getComparativeScoreList();
+		assertEquals(13, rf_scoreList.get(0).intValue());
+		assertEquals(12, rf_scoreList.get(1).intValue());
+		assertEquals(11, rf_scoreList.get(2).intValue());
+		assertEquals(10, rf_scoreList.get(3).intValue());
+		assertEquals(9, rf_scoreList.get(4).intValue());
 	}
 	
 	public void testGetHandScore() {
