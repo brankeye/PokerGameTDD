@@ -4,11 +4,13 @@ import java.util.ArrayList;
 public class Hand {
 	
 	private ArrayList<Card> listOfCards;
+	private String          handName;
 	private int             score;
 	private static final int maxCards = 5;
 	
 	public Hand() {
 		listOfCards = new ArrayList<Card>(0);
+		handName = "";
 		score = -1;
 	}
 
@@ -30,5 +32,6 @@ public class Hand {
 		return 1;
 	}
 	
-	public int getHandScore() { return score; }
+	public int    getHandScore()   { return score; }
+	public String getHandName()    { return handName; }
 }

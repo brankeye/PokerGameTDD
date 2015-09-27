@@ -49,7 +49,7 @@ public class Card {
 		return 1;
 	}
 	
-	public String getRank()   { return rank; }
-	public String getSuit()   { return suit; }
-	public int getCardScore() { return score; }
+	public String getRank()      { return rank; }
+	public String getSuit()      { return suit; }
+	public int    getCardScore() { return score; }
 }
