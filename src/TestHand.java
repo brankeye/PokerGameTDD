@@ -30,11 +30,11 @@ public class TestHand extends TestCase {
 		firstHand.addCard("FiveHearts");
 		firstHand.addCard("SixHearts");
 		ArrayList<Integer> scoreList = firstHand.getSortedScoreList();
-		assertEquals(1, scoreList.get(0)); // 2 Card has score of 1
-		assertEquals(2, scoreList.get(1)); // 3 Card has score of 2
-		assertEquals(3, scoreList.get(2)); // 4 Card has score of 3
-		assertEquals(4, scoreList.get(3)); // 5 Card has score of 4
-		assertEquals(5, scoreList.get(4)); // 6 Card has score of 5
+		assertEquals(1, scoreList.get(0).intValue()); // 2 Card has score of 1
+		assertEquals(2, scoreList.get(1).intValue()); // 3 Card has score of 2
+		assertEquals(3, scoreList.get(2).intValue()); // 4 Card has score of 3
+		assertEquals(4, scoreList.get(3).intValue()); // 5 Card has score of 4
+		assertEquals(5, scoreList.get(4).intValue()); // 6 Card has score of 5
 	}
 	
 	public void testGetHandScore() {

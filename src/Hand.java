@@ -1,5 +1,6 @@
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Hand {
 	
@@ -30,6 +31,15 @@ public class Hand {
 		
 		listOfCards.add(givenCard);
 		return 1;
+	}
+	
+	public ArrayList<Integer> getSortedScoreList() {
+		ArrayList<Integer> scoreList = new ArrayList<Integer>();
+		for(int i = 0; i < listOfCards.size(); ++i) {
+			scoreList.add(listOfCards.get(i).getCardScore());
+		}
+		Collections.sort(scoreList);
+		return scoreList;
 	}
 	
 	public int    getHandScore()   { return score; }
