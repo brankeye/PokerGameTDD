@@ -403,7 +403,21 @@ public class TestHand extends TestCase {
 		assertEquals(1, tp3_scoreList.get(1).intValue());
 		assertEquals(3, tp3_scoreList.get(2).intValue());
 		
+		// Comparative List of Three Kind hand
 		
+		// check aaabc
+		Hand threeKindHand = new Hand();
+		threeKindHand.addCard("TwoHearts");
+		threeKindHand.addCard("TwoClubs");
+		threeKindHand.addCard("TwoDiamonds");
+		threeKindHand.addCard("ThreeSpades");
+		threeKindHand.addCard("FourHearts");
+		threeKindHand.calculateHandScore();
+		// should return 2, 4, 3 or (1, 3, 2)
+		ArrayList<Integer> tk_scoreList = threeKindHand.getComparativeScoreList();
+		assertEquals(1, tk_scoreList.get(0).intValue());
+		assertEquals(3, tk_scoreList.get(1).intValue());
+		assertEquals(2, tk_scoreList.get(2).intValue());
 	}
 	
 	public void testGetHandScore() {
