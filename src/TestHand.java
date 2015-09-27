@@ -22,6 +22,16 @@ public class TestHand extends TestCase {
 		assertEquals(0, firstHand.addCard("TwoClubs")); // adding more than 5 cards fails
 	}
 	
+	public void testCalculateHandScore() {
+		Hand highCardHand = new Hand();
+		highCardHand.addCard("TwoHearts");
+		highCardHand.addCard("FourClubs");
+		highCardHand.addCard("KingDiamonds");
+		highCardHand.addCard("QueenSpades");
+		highCardHand.addCard("AceHearts");
+		assertEquals(1, highCardHand.getScore()); // high card hand score is 1
+	}
+	
 	public void testIsStraightFlush() {
 		Hand straightFlushHand = new Hand();
 		// check for a straight flush
@@ -253,21 +263,27 @@ public class TestHand extends TestCase {
 		assertEquals(5, scoreList.get(4).intValue()); // 6 Card has score of 5
 	}
 	
-	// to be used to compare against other hands of the same rank
+	// to be used to compare against other hands of the same rank (ONLY compare against equivalent ranked hands!)
 	public void testGetComparativeScoreList() {
+		// empty hand should return an empty comparative list
 		Hand firstHand = new Hand();
-		firstHand.addCard("TwoHearts");
-		firstHand.addCard("TwoClubs");
-		firstHand.addCard("KingHearts");
-		firstHand.addCard("KingClubs");
-		firstHand.addCard("SixDiamonds");
+		ArrayList<Integer> fh_scoreList = firstHand.getComparativeScoreList();
+		assertEquals(0, fh_scoreList.size()); // returns empty list for now
 		
-		// proper return list should be K, 2, 6 or by score (12, 1, 5)
-		ArrayList<Integer> scoreList = firstHand.getComparativeScoreList();
-		assertEquals(0, scoreList.size()); // returns empty list for now
-		//assertEquals(12, scoreList.get(0).intValue()); // K Card has score of 12
-		//assertEquals(1, scoreList.get(1).intValue()); // 2 Card has score of 1
-		//assertEquals(5, scoreList.get(2).intValue()); // 6 Card has score of 5
+		// Comparative List of High Card hand
+		Hand highCardHand = new Hand();
+		highCardHand.addCard("TwoHearts");
+		highCardHand.addCard("FourClubs");
+		highCardHand.addCard("KingDiamonds");
+		highCardHand.addCard("QueenSpades");
+		highCardHand.addCard("AceHearts");
+		// should return A, K, Q, Four, Two or (13, 12, 11, 3, 1)
+		ArrayList<Integer> hc_scoreList = highCardHand.getComparativeScoreList();
+		assertEquals(13, hc_scoreList.get(0).intValue());
+		assertEquals(12, hc_scoreList.get(1).intValue());
+		assertEquals(11, hc_scoreList.get(2).intValue());
+		assertEquals(3, hc_scoreList.get(3).intValue());
+		assertEquals(1, hc_scoreList.get(4).intValue());
 	}
 	
 	public void testGetHandScore() {
