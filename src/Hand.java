@@ -33,6 +33,17 @@ public class Hand {
 		return 1;
 	}
 	
+	public int isFlush() {
+		String theSuit = listOfCards.get(0).getSuit();
+		for(int i = 1; i < listOfCards.size(); ++i) {
+			if(theSuit.equals(listOfCards.get(i).getSuit()) == false) {
+				return 0;
+			}
+			theSuit = listOfCards.get(i).getSuit();
+		}
+		return 1;
+	}
+	
 	public ArrayList<Integer> getSortedScoreList() {
 		ArrayList<Integer> scoreList = new ArrayList<Integer>();
 		for(int i = 0; i < listOfCards.size(); ++i) {

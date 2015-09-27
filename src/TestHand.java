@@ -42,6 +42,26 @@ public class TestHand extends TestCase {
 		assertEquals(0, falseFlushHand.isFlush());
 	}
 	
+	public void testIsStraight() {
+		Hand straightHand = new Hand();
+		// check for a straight
+		straightHand.addCard("TwoHearts");
+		straightHand.addCard("ThreeHearts");
+		straightHand.addCard("FourDiamonds");
+		straightHand.addCard("FiveHearts");
+		straightHand.addCard("SixSpades");
+		assertEquals(1, straightHand.isStraight());
+		
+		Hand falseStraightHand = new Hand();
+		// check for a false straight
+		falseStraightHand.addCard("TwoHearts");
+		falseStraightHand.addCard("ThreeHearts");
+		falseStraightHand.addCard("FourDiamonds");
+		falseStraightHand.addCard("FiveHearts");
+		falseStraightHand.addCard("SevenSpades");
+		assertEquals(0, falseStraightHand.isStraight());
+	}
+	
 	public void testGetSortedScoreList() {
 		Hand firstHand = new Hand();
 		firstHand.addCard("TwoHearts");
