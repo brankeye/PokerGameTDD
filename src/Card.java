@@ -7,8 +7,15 @@ public class Card {
 	private static final String[] listOfRanks = {"Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King", "Ace"};
 	private static final String[] listOfSuits = {"Spades", "Hearts", "Diamonds", "Clubs"};
 	
+	public Card() {
+		rank = "";
+		suit = "";
+	}
+	
 	// parse rankSuit into separate rank and suit, then return success or failure
 	public int storeRankSuit(String rankSuit) {
+		if(!rank.equals("") || !suit.equals("")) return 0; // card already exists, cannot change its values
+		
 		String[] rs = rankSuit.split("(?=\\p{Upper})");
 		
 		// check that the number of capital delimiters found is only two

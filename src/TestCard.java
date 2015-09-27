@@ -11,12 +11,25 @@ public class TestCard extends TestCase {
 	public void testStoreRankSuit() {
 		Card cardTwoHearts = new Card();
 		assertEquals(1, cardTwoHearts.storeRankSuit("TwoHearts"));
-		assertEquals(0, cardTwoHearts.storeRankSuit("TwoThreeFour"));
-		assertEquals(0, cardTwoHearts.storeRankSuit("One"));
-		assertEquals(0, cardTwoHearts.storeRankSuit("BugHearts"));
-		assertEquals(0, cardTwoHearts.storeRankSuit("TwoLife"));
-		assertEquals(0, cardTwoHearts.storeRankSuit("01"));
-		assertEquals(0, cardTwoHearts.storeRankSuit(""));
+		
+		Card cardTwoThreeFour = new Card();
+		assertEquals(0, cardTwoThreeFour.storeRankSuit("TwoThreeFour"));
+		
+		Card cardOne = new Card();
+		assertEquals(0, cardOne.storeRankSuit("One"));
+		
+		Card cardBugHearts = new Card();
+		assertEquals(0, cardBugHearts.storeRankSuit("BugHearts"));
+		
+		Card cardTwoLife = new Card();
+		assertEquals(0, cardTwoLife.storeRankSuit("TwoLife"));
+		
+		Card card01 = new Card();
+		assertEquals(0, card01.storeRankSuit("01"));
+		
+		Card cardEmpty = new Card();
+		assertEquals(0, cardEmpty.storeRankSuit(""));
+		
 	}
 	
 	public void testGetRank() {
@@ -36,7 +49,9 @@ public class TestCard extends TestCase {
 		Card cardTwoHearts = new Card();
 		cardTwoHearts.storeRankSuit("TwoHearts");
 		assertEquals(1, cardTwoHearts.getCardScore());
-		cardTwoHearts.storeRankSuit("ThreeHearts");
-		assertEquals(2, cardTwoHearts.getCardScore());
+		
+		Card cardThreeHearts = new Card();
+		cardThreeHearts.storeRankSuit("ThreeHearts");
+		assertEquals(2, cardThreeHearts.getCardScore());
 	}
 }
