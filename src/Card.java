@@ -3,6 +3,7 @@ public class Card {
 
 	private String rank;
 	private String suit;
+	private int    score;
 	private static final String[] listOfRanks = {"Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King", "Ace"};
 	private static final String[] listOfSuits = {"Spades", "Hearts", "Diamonds", "Clubs"};
 	
@@ -20,6 +21,7 @@ public class Card {
 		for(int i = 0; i < listOfRanks.length; ++i) {
 			if(rs[0].equals(listOfRanks[i])) {
 				validRank = 1;
+				score = i + 1;
 			}
 		}
 		if(validRank == 0) return 0;
@@ -41,4 +43,5 @@ public class Card {
 	
 	public String getRank()   { return rank; }
 	public String getSuit()   { return suit; }
+	public int getCardScore() { return score; }
 }
