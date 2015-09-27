@@ -38,6 +38,28 @@ public class Hand {
 		return 0;
 	}
 	
+	public int isFourKind() {
+		// get the score of each card in a list
+		ArrayList<Integer> scoreList = getSortedScoreList();
+		int currentScore   = scoreList.get(0);
+		int sameScoreCount = 0;
+		for(int i = 1; i < scoreList.size(); ++i) {
+			if(currentScore == scoreList.get(i)) {
+				sameScoreCount++;
+				if(sameScoreCount >= 3) {
+					return 1;
+				}
+			} else {
+				sameScoreCount = 0;
+				if(i >= 2) {
+					return 0;
+				}
+			}
+			currentScore = scoreList.get(i);
+		}
+		return 0;
+	}
+	
 	public int isFlush() {
 		String theSuit = listOfCards.get(0).getSuit();
 		for(int i = 1; i < listOfCards.size(); ++i) {
