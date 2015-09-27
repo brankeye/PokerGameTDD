@@ -102,6 +102,12 @@ public class Hand {
 			if(currentScore == scoreList.get(i)) {
 				sameScoreCount++;
 				if(sameScoreCount >= 3) {
+					comparativeScoreList.add(currentScore);
+					for(int k = scoreList.size() - 1; k >= 0; --k) {
+						if(scoreList.get(k) != currentScore) {
+							comparativeScoreList.add(scoreList.get(k));
+						}
+					}
 					return 1;
 				}
 			} else {
