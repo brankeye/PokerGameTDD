@@ -538,6 +538,24 @@ public class TestHand extends TestCase {
 		ArrayList<Integer> fk2_scoreList = fourKindHand2.getComparativeScoreList();
 		assertEquals(12, fk2_scoreList.get(0).intValue());
 		assertEquals(3, fk2_scoreList.get(1).intValue());
+		
+		// Comparative List of Straight Flush hand
+		
+		// check abcde
+		Hand straightFlushHand = new Hand();
+		straightFlushHand.addCard("TwoHearts");
+		straightFlushHand.addCard("ThreeHearts");
+		straightFlushHand.addCard("FourHearts");
+		straightFlushHand.addCard("FiveHearts");
+		straightFlushHand.addCard("SixHearts");
+		straightFlushHand.calculateHandScore();
+		// should return 6, 5, 4, 3, 2, 1 or (5, 4, 3, 2, 1)
+		ArrayList<Integer> sf_scoreList = straightFlushHand.getComparativeScoreList();
+		assertEquals(5, sf_scoreList.get(0).intValue());
+		assertEquals(4, sf_scoreList.get(1).intValue());
+		assertEquals(3, sf_scoreList.get(2).intValue());
+		assertEquals(2, sf_scoreList.get(3).intValue());
+		assertEquals(1, sf_scoreList.get(4).intValue());
 	}
 	
 	public void testGetHandScore() {
