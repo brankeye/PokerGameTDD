@@ -253,6 +253,22 @@ public class TestHand extends TestCase {
 		assertEquals(5, scoreList.get(4).intValue()); // 6 Card has score of 5
 	}
 	
+	// to be used to compare against other hands of the same rank
+	public void testGetComparativeScoreList() {
+		Hand firstHand = new Hand();
+		firstHand.addCard("TwoHearts");
+		firstHand.addCard("TwoClubs");
+		firstHand.addCard("KingHearts");
+		firstHand.addCard("KingClubs");
+		firstHand.addCard("SixDiamonds");
+		
+		// proper return list should be K, 2, 6 or by score (12, 1, 5)
+		ArrayList<Integer> scoreList = firstHand.getComparativeScoreList();
+		assertEquals(12, scoreList.get(0).intValue()); // K Card has score of 12
+		assertEquals(1, scoreList.get(1).intValue()); // 2 Card has score of 1
+		assertEquals(5, scoreList.get(2).intValue()); // 6 Card has score of 5
+	}
+	
 	public void testGetHandScore() {
 		Hand firstHand = new Hand();
 		assertEquals(-1, firstHand.getHandScore()); // score is initialized to -1 at start
