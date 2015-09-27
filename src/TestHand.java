@@ -582,7 +582,12 @@ public class TestHand extends TestCase {
 	}
 	
 	public void testGetHandName() {
-		Hand firstHand = new Hand();
-		assertEquals("", firstHand.getHandName()); // hand name empty for now
+		Hand royalFlushHand = new Hand();
+		royalFlushHand.addCard("AceHearts");
+		royalFlushHand.addCard("KingHearts");
+		royalFlushHand.addCard("QueenHearts");
+		royalFlushHand.addCard("JackHearts");
+		royalFlushHand.addCard("TenHearts");
+		assertEquals("Royal Flush", royalFlushHand.getHandName());
 	}
 }

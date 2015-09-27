@@ -9,6 +9,32 @@ public class Hand {
 	private String          handName;
 	private int             score;
 	private static final int maxCards = 5;
+	private enum Hands {
+	    highCard ("High Card"),
+	    pair ("Pair"),
+	    twoPair ("Two Pair"),
+	    threeKind ("Three of a Kind"),
+	    straight ("Straight"),
+	    flush ("Flush"),
+	    fullHouse ("Full House"),
+	    fourKind ("Four of a Kind"),
+	    straightFlush ("Straight Flush"),
+	    royalFlush ("Royal Flush");
+
+	    private final String name;       
+
+	    private Hands(String s) {
+	        name = s;
+	    }
+
+	    public boolean equalsName(String otherName) {
+	        return (otherName == null) ? false : name.equals(otherName);
+	    }
+
+	    public String toString() {
+	       return this.name;
+	    }
+	}
 	
 	public Hand() {
 		listOfCards = new ArrayList<Card>(0);
@@ -32,6 +58,9 @@ public class Hand {
 		}
 		
 		listOfCards.add(givenCard);
+		if(listOfCards.size() == 5) {
+			calculateHandScore();
+		}
 		return 1;
 	}
 	
@@ -48,35 +77,36 @@ public class Hand {
 	 * 1  - High Card
 	 */
 	public int calculateHandScore() {
+		if(score != -1) { return score; }
 		if(isRoyalFlush() == 1) {
-			handName = "Royal Flush";
+			handName = Hands.royalFlush.toString();
 			score = 10;
 		} else if(isStraightFlush() == 1) {
-			handName = "Straight Flush";
+			handName = Hands.straightFlush.toString();
 			score = 9;
 		} else if(isFourKind() == 1) {
-			handName = "Four of a Kind";
+			handName = Hands.fourKind.toString();
 			score = 8;
 		} else if(isFullHouse() == 1) {
-			handName = "Full House";
+			handName = Hands.fullHouse.toString();
 			score = 7;
 		} else if(isFlush() == 1) {
-			handName = "Flush";
+			handName = Hands.flush.toString();
 			score = 6;
 		} else if(isStraight() == 1) {
-			handName = "Straight";
+			handName = Hands.straight.toString();
 			score = 5;
 		} else if(isThreeKind() == 1) {
-			handName = "Three of a Kind";
+			handName = Hands.threeKind.toString();
 			score = 4;
 		} else if(isTwoPair() == 1) {
-			handName = "Two Pair";
+			handName = Hands.twoPair.toString();
 			score = 3;
 		} else if(isPair() == 1) {
-			handName = "Pair";
+			handName = Hands.pair.toString();
 			score = 2;
 		} else {
-			handName = "High Card";
+			handName = Hands.highCard.toString();
 			score = 1;
 			comparativeScoreList = getReverseScoreList();
 		}
