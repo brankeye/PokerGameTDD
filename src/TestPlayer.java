@@ -10,6 +10,7 @@ public class TestPlayer extends TestCase {
 	public void testGivePlayerHand() {
 		Player player1 = new Player();
 		Hand flushHand = new Hand();
+		assertEquals(0, player1.giveHand(flushHand));
 		// check for a flush
 		flushHand.addCard("TwoHearts");
 		flushHand.addCard("ThreeHearts");
