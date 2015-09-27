@@ -60,6 +60,29 @@ public class Hand {
 		return 0;
 	}
 	
+	public int isFullHouse() {
+		// get the score of each card in a list
+		ArrayList<Integer> scoreList = getSortedScoreList();
+		
+		// check for aabbb
+		if(scoreList.get(0) == scoreList.get(1) &&
+		   scoreList.get(2) == scoreList.get(3) &&
+		   scoreList.get(3) == scoreList.get(4)) {
+			
+		    return 1;
+		}
+		
+		// check for aaabb
+		if(scoreList.get(0) == scoreList.get(1) &&
+		   scoreList.get(1) == scoreList.get(2) &&
+		   scoreList.get(3) == scoreList.get(4)) {
+			
+		    return 1;
+		}
+		
+		return 0;
+	}
+	
 	public int isFlush() {
 		String theSuit = listOfCards.get(0).getSuit();
 		for(int i = 1; i < listOfCards.size(); ++i) {
