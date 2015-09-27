@@ -123,7 +123,8 @@ public class Hand {
 		if(scoreList.get(0) == scoreList.get(1) &&
 		   scoreList.get(2) == scoreList.get(3) &&
 		   scoreList.get(3) == scoreList.get(4)) {
-			
+			comparativeScoreList.add(scoreList.get(4));
+			comparativeScoreList.add(scoreList.get(0));
 		    return 1;
 		}
 		
@@ -131,7 +132,8 @@ public class Hand {
 		if(scoreList.get(0) == scoreList.get(1) &&
 		   scoreList.get(1) == scoreList.get(2) &&
 		   scoreList.get(3) == scoreList.get(4)) {
-			
+			comparativeScoreList.add(scoreList.get(0));
+			comparativeScoreList.add(scoreList.get(4));
 		    return 1;
 		}
 		
