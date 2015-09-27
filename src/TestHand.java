@@ -235,7 +235,7 @@ public class TestHand extends TestCase {
 		highHand.addCard("FourSpades");
 		highHand.addCard("SixClubs");
 		highHand.addCard("KingHearts");
-		assertEquals(12, highHand.highCardScore()); // 2-Ace == 1-13
+		assertEquals(12, highHand.getHighCardScore()); // 2-Ace == 1-13
 	}
 	
 	public void testGetSortedScoreList() {

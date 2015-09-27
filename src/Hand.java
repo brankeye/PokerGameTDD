@@ -174,6 +174,10 @@ public class Hand {
 		return scoreList;
 	}
 	
+	public int getHighCardScore() {
+		ArrayList<Integer> scoreList = getSortedScoreList();
+		return scoreList.get(scoreList.size() - 1);
+	}
 	public int    getHandScore()   { return score; }
 	public String getHandName()    { return handName; }
 }
