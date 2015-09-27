@@ -71,6 +71,26 @@ public class TestHand extends TestCase {
 		assertEquals(1, otherFourKindHand.isFourKind());
 	}
 	
+	public void testIsFullHouse() {
+		Hand fullHouseHand = new Hand();
+		// check for a full house
+		fullHouseHand.addCard("TenHearts");
+		fullHouseHand.addCard("TenDiamonds");
+		fullHouseHand.addCard("TenSpades");
+		fullHouseHand.addCard("TwoClubs");
+		fullHouseHand.addCard("TwoHearts");
+		assertEquals(1, fullHouseHand.isFullHouse());
+		
+		Hand otherFullHouseHand = new Hand();
+		// check for a full house
+		otherFullHouseHand.addCard("TenHearts");
+		otherFullHouseHand.addCard("TenDiamonds");
+		otherFullHouseHand.addCard("TwoSpades");
+		otherFullHouseHand.addCard("TwoClubs");
+		otherFullHouseHand.addCard("TwoHearts");
+		assertEquals(1, otherFullHouseHand.isFullHouse());
+	}
+	
 	public void testIsFlush() {
 		Hand flushHand = new Hand();
 		// check for a flush
