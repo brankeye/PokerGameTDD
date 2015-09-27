@@ -446,6 +446,24 @@ public class TestHand extends TestCase {
 		assertEquals(12, tk3_scoreList.get(0).intValue());
 		assertEquals(2, tk3_scoreList.get(1).intValue());
 		assertEquals(1, tk3_scoreList.get(2).intValue());
+		
+		// Comparative List of Straight hand
+		
+		// check aaabc
+		Hand straightHand = new Hand();
+		straightHand.addCard("TwoHearts");
+		straightHand.addCard("ThreeClubs");
+		straightHand.addCard("FourDiamonds");
+		straightHand.addCard("FiveSpades");
+		straightHand.addCard("SixHearts");
+		straightHand.calculateHandScore();
+		// should return 6, 5, 4, 3, 2, 1 or (5, 4, 3, 2, 1)
+		ArrayList<Integer> sh_scoreList = straightHand.getComparativeScoreList();
+		assertEquals(5, sh_scoreList.get(0).intValue());
+		assertEquals(4, sh_scoreList.get(1).intValue());
+		assertEquals(3, sh_scoreList.get(2).intValue());
+		assertEquals(2, sh_scoreList.get(3).intValue());
+		assertEquals(1, sh_scoreList.get(4).intValue());
 	}
 	
 	public void testGetHandScore() {
