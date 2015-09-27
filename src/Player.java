@@ -8,4 +8,8 @@ public class Player {
 	}
 	
 	public String getHandName() { return playerHand.getHandName(); }
+
+	public int giveHand(Hand flushHand) {
+		return 1;
+	}
 }
