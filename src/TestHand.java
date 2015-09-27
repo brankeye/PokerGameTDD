@@ -189,6 +189,44 @@ public class TestHand extends TestCase {
 		assertEquals(1, twoPairHand3.isTwoPair());
 	}
 	
+	public void testIsPair() {
+		Hand pairHand = new Hand();
+		// check for a two pair aabcd
+		pairHand.addCard("TwoHearts");
+		pairHand.addCard("TwoDiamonds");
+		pairHand.addCard("ThreeSpades");
+		pairHand.addCard("FourClubs");
+		pairHand.addCard("EightHearts");
+		assertEquals(1, pairHand.isPair());
+		
+		Hand pairHand2 = new Hand();
+		// check for a two pair abbcd
+		pairHand2.addCard("TwoHearts");
+		pairHand2.addCard("ThreeDiamonds");
+		pairHand2.addCard("ThreeSpades");
+		pairHand2.addCard("FourClubs");
+		pairHand2.addCard("EightHearts");
+		assertEquals(1, pairHand2.isPair());
+		
+		Hand pairHand3 = new Hand();
+		// check for a two pair abccd
+		pairHand3.addCard("TwoHearts");
+		pairHand3.addCard("ThreeDiamonds");
+		pairHand3.addCard("FourSpades");
+		pairHand3.addCard("FourClubs");
+		pairHand3.addCard("EightHearts");
+		assertEquals(1, pairHand3.isPair());
+		
+		Hand pairHand4 = new Hand();
+		// check for a two pair abcdd
+		pairHand4.addCard("TwoHearts");
+		pairHand4.addCard("ThreeDiamonds");
+		pairHand4.addCard("FourSpades");
+		pairHand4.addCard("FiveClubs");
+		pairHand4.addCard("FiveHearts");
+		assertEquals(1, pairHand4.isPair());
+	}
+	
 	public void testGetSortedScoreList() {
 		Hand firstHand = new Hand();
 		firstHand.addCard("TwoHearts");
