@@ -190,13 +190,28 @@ public class Hand {
 		ArrayList<Integer> scoreList = getSortedScoreList();
 		
 		// check aabbc
-		if(scoreList.get(0) == scoreList.get(1) && scoreList.get(2) == scoreList.get(3)) return 1;
+		if(scoreList.get(0) == scoreList.get(1) && scoreList.get(2) == scoreList.get(3)) {
+			comparativeScoreList.add(scoreList.get(2));
+			comparativeScoreList.add(scoreList.get(0));
+			comparativeScoreList.add(scoreList.get(4));
+			return 1;
+		}
 		
 		// check abbcc
-		if(scoreList.get(1) == scoreList.get(2) && scoreList.get(3) == scoreList.get(4)) return 1;
+		if(scoreList.get(1) == scoreList.get(2) && scoreList.get(3) == scoreList.get(4)) {
+			comparativeScoreList.add(scoreList.get(4));
+			comparativeScoreList.add(scoreList.get(2));
+			comparativeScoreList.add(scoreList.get(0));
+			return 1;
+		}
 		
 		// check aabcc
-		if(scoreList.get(0) == scoreList.get(1) && scoreList.get(3) == scoreList.get(4)) return 1;
+		if(scoreList.get(0) == scoreList.get(1) && scoreList.get(3) == scoreList.get(4)) {
+			comparativeScoreList.add(scoreList.get(4));
+			comparativeScoreList.add(scoreList.get(0));
+			comparativeScoreList.add(scoreList.get(2));
+			return 1;
+		}
 		
 		return 0;
 	}
