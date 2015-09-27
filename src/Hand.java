@@ -9,6 +9,7 @@ public class Hand {
 	
 	public Hand() {
 		listOfCards = new ArrayList<Card>(0);
+		score = -1;
 	}
 
 	public int addCard(String rankSuit) {
@@ -28,4 +29,6 @@ public class Hand {
 		listOfCards.add(givenCard);
 		return 1;
 	}
+	
+	public int getHandScore() { return score; }
 }
