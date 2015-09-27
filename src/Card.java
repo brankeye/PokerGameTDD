@@ -38,4 +38,7 @@ public class Card {
 		
 		return 1;
 	}
+	
+	public String getRank()   { return rank; }
+	public String getSuit()   { return suit; }
 }
