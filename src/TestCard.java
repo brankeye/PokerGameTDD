@@ -18,4 +18,16 @@ public class TestCard extends TestCase {
 		assertEquals(0, cardTwoHearts.storeRankSuit("01"));
 		assertEquals(0, cardTwoHearts.storeRankSuit(""));
 	}
+	
+	public void testGetRank() {
+		Card cardTwoHearts = new Card();
+		cardTwoHearts.storeRankSuit("TwoHearts");
+		assertEquals("Two", cardTwoHearts.getRank());
+	}
+	
+	public void testGetSuit() {
+		Card cardTwoHearts = new Card();
+		cardTwoHearts.storeRankSuit("TwoHearts");
+		assertEquals("Hearts", cardTwoHearts.getSuit());
+	}
 }
