@@ -130,6 +130,22 @@ public class Hand {
 		return 0;
 	}
 	
+	public int isTwoPair() {
+		// get the score of each card in a list
+		ArrayList<Integer> scoreList = getSortedScoreList();
+		
+		// check aabbc
+		if(scoreList.get(0) == scoreList.get(1) && scoreList.get(2) == scoreList.get(3)) return 1;
+		
+		// check abbcc
+		if(scoreList.get(1) == scoreList.get(2) && scoreList.get(3) == scoreList.get(4)) return 1;
+		
+		// check aabcc
+		if(scoreList.get(0) == scoreList.get(1) && scoreList.get(3) == scoreList.get(4)) return 1;
+		
+		return 0;
+	}
+	
 	public ArrayList<Integer> getSortedScoreList() {
 		ArrayList<Integer> scoreList = new ArrayList<Integer>();
 		for(int i = 0; i < listOfCards.size(); ++i) {
