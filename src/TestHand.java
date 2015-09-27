@@ -51,6 +51,26 @@ public class TestHand extends TestCase {
 		assertEquals(0, falseStraightFlushHandTwo.isStraightFlush());
 	}
 	
+	public void testIsFourKind() {
+		Hand fourKindHand = new Hand();
+		// check for a four kind aaaab
+		fourKindHand.addCard("TwoHearts");
+		fourKindHand.addCard("TwoDiamonds");
+	    fourKindHand.addCard("TwoSpades");
+		fourKindHand.addCard("TwoClubs");
+		fourKindHand.addCard("SixHearts");
+		assertEquals(1, fourKindHand.isFourKind());
+		
+		Hand otherFourKindHand = new Hand();
+		// check for a four kind abbbb
+		otherFourKindHand.addCard("TwoHearts");
+		otherFourKindHand.addCard("FiveDiamonds");
+		otherFourKindHand.addCard("FiveClubs");
+	    otherFourKindHand.addCard("FiveSpades");
+		otherFourKindHand.addCard("FiveHearts");
+		assertEquals(1, otherFourKindHand.isFourKind());
+	}
+	
 	public void testIsFlush() {
 		Hand flushHand = new Hand();
 		// check for a flush

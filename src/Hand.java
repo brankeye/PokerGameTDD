@@ -33,6 +33,11 @@ public class Hand {
 		return 1;
 	}
 	
+	public int isStraightFlush() {
+		if(isFlush() == 1 && isStraight() == 1) return 1;
+		return 0;
+	}
+	
 	public int isFlush() {
 		String theSuit = listOfCards.get(0).getSuit();
 		for(int i = 1; i < listOfCards.size(); ++i) {
