@@ -296,6 +296,21 @@ public class TestHand extends TestCase {
 		assertEquals(11, hc_scoreList.get(2).intValue());
 		assertEquals(3, hc_scoreList.get(3).intValue());
 		assertEquals(1, hc_scoreList.get(4).intValue());
+		
+		// Comparative List of High Card hand
+		Hand pairHand = new Hand();
+		pairHand.addCard("ThreeHearts");
+		pairHand.addCard("ThreeClubs");
+		pairHand.addCard("KingDiamonds");
+		pairHand.addCard("TenSpades");
+		pairHand.addCard("TwoHearts");
+		pairHand.calculateHandScore();
+		// should return 3, K, 10, 2 or (2, 12, 9, 1)
+		ArrayList<Integer> p_scoreList = pairHand.getComparativeScoreList();
+		assertEquals(2, p_scoreList.get(0).intValue());
+		assertEquals(12, p_scoreList.get(1).intValue());
+		assertEquals(9, p_scoreList.get(2).intValue());
+		assertEquals(1, p_scoreList.get(3).intValue());
 	}
 	
 	public void testGetHandScore() {
