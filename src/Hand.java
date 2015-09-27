@@ -146,6 +146,7 @@ public class Hand {
 			}
 			theSuit = listOfCards.get(i).getSuit();
 		}
+		comparativeScoreList = getReverseScoreList();
 		return 1;
 	}
 	
