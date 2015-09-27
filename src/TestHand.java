@@ -29,7 +29,18 @@ public class TestHand extends TestCase {
 		highCardHand.addCard("KingDiamonds");
 		highCardHand.addCard("QueenSpades");
 		highCardHand.addCard("AceHearts");
-		assertEquals(1, highCardHand.getScore()); // high card hand score is 1
+		assertEquals(1, highCardHand.getHandScore()); // high card hand score is 1
+	}
+	
+	public void testIsRoyalFlush() {
+		Hand royalFlushHand = new Hand();
+		// check for a royal flush
+		royalFlushHand.addCard("TenHearts");
+		royalFlushHand.addCard("JackHearts");
+		royalFlushHand.addCard("QueenHearts");
+		royalFlushHand.addCard("KingHearts");
+		royalFlushHand.addCard("AceHearts");
+		assertEquals(1, royalFlushHand.isRoyalFlush());
 	}
 	
 	public void testIsStraightFlush() {

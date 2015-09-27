@@ -35,6 +35,57 @@ public class Hand {
 		return 1;
 	}
 	
+	/* Poker Hand Scoring
+	 * 10 - Royal Flush
+	 * 9  - Straight Flush
+	 * 8  - Four Kind
+	 * 7  - Full House
+	 * 6  - Flush
+	 * 5  - Straight
+	 * 4  - Three Kind
+	 * 3  - Two Pair
+	 * 2  - Pair
+	 * 1  - High Card
+	 */
+	public void calculateHandScore() {
+		if(isRoyalFlush() == 1) {
+			handName = "Royal Flush";
+			score = 10;
+		} else if(isStraightFlush() == 1) {
+			handName = "Straight Flush";
+			score = 9;
+		} else if(isFourKind() == 1) {
+			handName = "Four of a Kind";
+			score = 8;
+		} else if(isFullHouse() == 1) {
+			handName = "Full House";
+			score = 7;
+		} else if(isFlush() == 1) {
+			handName = "Flush";
+			score = 6;
+		} else if(isStraight() == 1) {
+			handName = "Straight";
+			score = 5;
+		} else if(isThreeKind() == 1) {
+			handName = "Three of a Kind";
+			score = 4;
+		} else if(isTwoPair() == 1) {
+			handName = "Two Pair";
+			score = 3;
+		} else if(isPair() == 1) {
+			handName = "Pair";
+			score = 2;
+		} else {
+			handName = "High Card";
+			score = 1;
+		}
+	}
+	
+	public int isRoyalFlush() {
+		if(isStraight() == 1 && isFlush() == 1 && getHighCardScore() == 13) return 1;
+		return 0;
+	}
+	
 	public int isStraightFlush() {
 		if(isFlush() == 1 && isStraight() == 1) return 1;
 		return 0;
