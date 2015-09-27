@@ -482,6 +482,34 @@ public class TestHand extends TestCase {
 		assertEquals(5, f_scoreList.get(2).intValue());
 		assertEquals(4, f_scoreList.get(3).intValue());
 		assertEquals(1, f_scoreList.get(4).intValue());
+		
+		// Comparative List of Full House hand
+		
+		// check aaabb
+		Hand fhHand = new Hand();
+		fhHand.addCard("TenSpades");
+		fhHand.addCard("TenHearts");
+		fhHand.addCard("TenDiamonds");
+		fhHand.addCard("NineSpades");
+		fhHand.addCard("NineHearts");
+		fhHand.calculateHandScore();
+		// should return 10, 9 or (9, 8)
+		ArrayList<Integer> h_scoreList = fhHand.getComparativeScoreList();
+		assertEquals(9, h_scoreList.get(0).intValue());
+		assertEquals(8, h_scoreList.get(1).intValue());
+		
+		// check aabbb
+		Hand fhHand2 = new Hand();
+		fhHand2.addCard("TenSpades");
+		fhHand2.addCard("TenHearts");
+		fhHand2.addCard("NineDiamonds");
+		fhHand2.addCard("NineSpades");
+		fhHand2.addCard("NineHearts");
+		fhHand2.calculateHandScore();
+		// should return 9, 10 or (8, 9)
+		ArrayList<Integer> h2_scoreList = fhHand2.getComparativeScoreList();
+		assertEquals(8, h2_scoreList.get(0).intValue());
+		assertEquals(9, h2_scoreList.get(1).intValue());
 	}
 	
 	public void testGetHandScore() {
