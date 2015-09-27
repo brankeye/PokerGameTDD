@@ -24,4 +24,9 @@ public class TestHand extends TestCase {
 		Hand firstHand = new Hand();
 		assertEquals(-1, firstHand.getHandScore()); // score is initialized to -1 at start
 	}
+	
+	public void testGetHandName() {
+		Hand firstHand = new Hand();
+		assertEquals("", firstHand.getHandName()); // hand name empty for now
+	}
 }
