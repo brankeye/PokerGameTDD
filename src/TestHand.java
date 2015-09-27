@@ -418,6 +418,34 @@ public class TestHand extends TestCase {
 		assertEquals(1, tk_scoreList.get(0).intValue());
 		assertEquals(3, tk_scoreList.get(1).intValue());
 		assertEquals(2, tk_scoreList.get(2).intValue());
+		
+		// check abbbc
+		Hand threeKindHand2 = new Hand();
+		threeKindHand2.addCard("ThreeHearts");
+		threeKindHand2.addCard("ThreeClubs");
+		threeKindHand2.addCard("ThreeDiamonds");
+		threeKindHand2.addCard("TwoSpades");
+		threeKindHand2.addCard("FourHearts");
+		threeKindHand2.calculateHandScore();
+		// should return 3, 4, 2 or (2, 3, 1)
+		ArrayList<Integer> tk2_scoreList = threeKindHand2.getComparativeScoreList();
+		assertEquals(2, tk2_scoreList.get(0).intValue());
+		assertEquals(3, tk2_scoreList.get(1).intValue());
+		assertEquals(1, tk2_scoreList.get(2).intValue());
+		
+		// check abccc
+		Hand threeKindHand3 = new Hand();
+		threeKindHand3.addCard("TwoHearts");
+		threeKindHand3.addCard("ThreeClubs");
+		threeKindHand3.addCard("KingDiamonds");
+		threeKindHand3.addCard("KingSpades");
+		threeKindHand3.addCard("KingHearts");
+		threeKindHand3.calculateHandScore();
+		// should return K, 3, 2 or (12, 2, 1)
+		ArrayList<Integer> tk3_scoreList = threeKindHand3.getComparativeScoreList();
+		assertEquals(12, tk3_scoreList.get(0).intValue());
+		assertEquals(2, tk3_scoreList.get(1).intValue());
+		assertEquals(1, tk3_scoreList.get(2).intValue());
 	}
 	
 	public void testGetHandScore() {
