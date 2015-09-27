@@ -108,6 +108,28 @@ public class Hand {
 		return 1;
 	}
 	
+	public int isThreeKind() {
+		// get the score of each card in a list
+		ArrayList<Integer> scoreList = getSortedScoreList();
+		int currentScore   = scoreList.get(0);
+		int sameScoreCount = 0;
+		for(int i = 1; i < scoreList.size(); ++i) {
+			if(currentScore == scoreList.get(i)) {
+				sameScoreCount++;
+				if(sameScoreCount >= 2) {
+					return 1;
+				}
+			} else {
+				sameScoreCount = 0;
+				if(i >= 3) {
+					return 0;
+				}
+			}
+			currentScore = scoreList.get(i);
+		}
+		return 0;
+	}
+	
 	public ArrayList<Integer> getSortedScoreList() {
 		ArrayList<Integer> scoreList = new ArrayList<Integer>();
 		for(int i = 0; i < listOfCards.size(); ++i) {
