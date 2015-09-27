@@ -29,6 +29,20 @@ public class TestPlayer extends TestCase {
 		flushHand.addCard("KingHearts");
 		flushHand.addCard("QueenHearts");
 		flushHand.addCard("FourHearts");
-		assertEquals("", player1.getHandName());
+		player1.giveHand(flushHand);
+		assertEquals("Flush", player1.getHandName());
+	}
+	
+	public void testGetPlayerScore() {
+		Player player1 = new Player();
+		Hand flushHand = new Hand();
+		// check for a flush
+		flushHand.addCard("TwoHearts");
+		flushHand.addCard("ThreeHearts");
+		flushHand.addCard("KingHearts");
+		flushHand.addCard("QueenHearts");
+		flushHand.addCard("FourHearts");
+		player1.giveHand(flushHand);
+		assertEquals(6, player1.getHandScore());
 	}
 }

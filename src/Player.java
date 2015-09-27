@@ -15,4 +15,8 @@ public class Player {
 		playerHand = flushHand;
 		return 1;
 	}
+
+	public int getHandScore() {
+		return playerHand.getHandScore();
+	}
 }
