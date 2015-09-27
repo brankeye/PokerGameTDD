@@ -78,6 +78,7 @@ public class Hand {
 		} else {
 			handName = "High Card";
 			score = 1;
+			comparativeScoreList = getReverseScoreList();
 		}
 		return score;
 	}
@@ -225,6 +226,16 @@ public class Hand {
 			scoreList.add(listOfCards.get(i).getCardScore());
 		}
 		Collections.sort(scoreList);
+		return scoreList;
+	}
+	
+	public ArrayList<Integer> getReverseScoreList() {
+		ArrayList<Integer> scoreList = new ArrayList<Integer>();
+		for(int i = 0; i < listOfCards.size(); ++i) {
+			scoreList.add(listOfCards.get(i).getCardScore());
+		}
+		Collections.sort(scoreList);
+		Collections.reverse(scoreList);
 		return scoreList;
 	}
 	

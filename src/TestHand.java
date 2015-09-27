@@ -288,6 +288,7 @@ public class TestHand extends TestCase {
 		highCardHand.addCard("KingDiamonds");
 		highCardHand.addCard("QueenSpades");
 		highCardHand.addCard("AceHearts");
+		highCardHand.calculateHandScore();
 		// should return A, K, Q, Four, Two or (13, 12, 11, 3, 1)
 		ArrayList<Integer> hc_scoreList = highCardHand.getComparativeScoreList();
 		assertEquals(13, hc_scoreList.get(0).intValue());
