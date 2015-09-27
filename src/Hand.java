@@ -5,12 +5,14 @@ import java.util.Collections;
 public class Hand {
 	
 	private ArrayList<Card> listOfCards;
+	private ArrayList<Integer> comparativeScoreList;
 	private String          handName;
 	private int             score;
 	private static final int maxCards = 5;
 	
 	public Hand() {
 		listOfCards = new ArrayList<Card>(0);
+		comparativeScoreList = new ArrayList<Integer>(0);
 		handName = "";
 		score = -1;
 	}
@@ -173,6 +175,8 @@ public class Hand {
 		Collections.sort(scoreList);
 		return scoreList;
 	}
+	
+	public ArrayList<Integer> getComparativeScoreList() { return comparativeScoreList; }
 	
 	public int getHighCardScore() {
 		ArrayList<Integer> scoreList = getSortedScoreList();
