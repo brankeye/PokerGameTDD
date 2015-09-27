@@ -29,7 +29,7 @@ public class TestHand extends TestCase {
 		highCardHand.addCard("KingDiamonds");
 		highCardHand.addCard("QueenSpades");
 		highCardHand.addCard("AceHearts");
-		assertEquals(1, highCardHand.getHandScore()); // high card hand score is 1
+		assertEquals(1, highCardHand.calculateHandScore()); // high card hand score is 1
 	}
 	
 	public void testIsRoyalFlush() {

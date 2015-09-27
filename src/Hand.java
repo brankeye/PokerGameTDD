@@ -47,7 +47,7 @@ public class Hand {
 	 * 2  - Pair
 	 * 1  - High Card
 	 */
-	public void calculateHandScore() {
+	public int calculateHandScore() {
 		if(isRoyalFlush() == 1) {
 			handName = "Royal Flush";
 			score = 10;
@@ -79,6 +79,7 @@ public class Hand {
 			handName = "High Card";
 			score = 1;
 		}
+		return score;
 	}
 	
 	public int isRoyalFlush() {
