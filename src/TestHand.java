@@ -22,6 +22,26 @@ public class TestHand extends TestCase {
 		assertEquals(0, firstHand.addCard("TwoClubs")); // adding more than 5 cards fails
 	}
 	
+	public void testIsFlush() {
+		Hand flushHand = new Hand();
+		// check for a flush
+		flushHand.addCard("TwoHearts");
+		flushHand.addCard("ThreeHearts");
+		flushHand.addCard("KingHearts");
+		flushHand.addCard("QueenHearts");
+		flushHand.addCard("FourHearts");
+		assertEquals(1, flushHand.isFlush());
+		
+		Hand falseFlushHand = new Hand();
+		// check for a false flush
+		falseFlushHand.addCard("TwoHearts");
+		falseFlushHand.addCard("ThreeHearts");
+		falseFlushHand.addCard("KingHearts");
+		falseFlushHand.addCard("QueenHearts");
+		falseFlushHand.addCard("FourSpades");
+		assertEquals(0, falseFlushHand.isFlush());
+	}
+	
 	public void testGetSortedScoreList() {
 		Hand firstHand = new Hand();
 		firstHand.addCard("TwoHearts");
