@@ -19,4 +19,9 @@ public class TestHand extends TestCase {
 		assertEquals(1, firstHand.addCard("ThreeClubs"));
 		assertEquals(0, firstHand.addCard("TwoClubs")); // adding more than 5 cards fails
 	}
+	
+	public void testGetHandScore() {
+		Hand firstHand = new Hand();
+		assertEquals(-1, firstHand.getHandScore()); // score is initialized to -1 at start
+	}
 }

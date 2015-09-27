@@ -3,8 +3,9 @@ import java.util.ArrayList;
 
 public class Hand {
 	
-	private static final int maxCards = 5;
 	private ArrayList<Card> listOfCards;
+	private int             score;
+	private static final int maxCards = 5;
 	
 	public Hand() {
 		listOfCards = new ArrayList<Card>(0);
