@@ -358,6 +358,52 @@ public class TestHand extends TestCase {
 		assertEquals(3, p4_scoreList.get(1).intValue());
 		assertEquals(2, p4_scoreList.get(2).intValue());
 		assertEquals(1, p4_scoreList.get(3).intValue());
+		
+		// Comparative List of Two Pair hand
+		
+		// check aabbc
+		Hand twoPairHand = new Hand();
+		twoPairHand.addCard("TwoHearts");
+		twoPairHand.addCard("TwoClubs");
+		twoPairHand.addCard("ThreeDiamonds");
+		twoPairHand.addCard("ThreeSpades");
+		twoPairHand.addCard("FourHearts");
+		twoPairHand.calculateHandScore();
+		// should return 3, 2, 4 or (2, 1, 3)
+		ArrayList<Integer> tp_scoreList = twoPairHand.getComparativeScoreList();
+		assertEquals(2, tp_scoreList.get(0).intValue());
+		assertEquals(1, tp_scoreList.get(1).intValue());
+		assertEquals(3, tp_scoreList.get(2).intValue());
+		
+		// check abbcc
+		Hand twoPairHand2 = new Hand();
+		twoPairHand2.addCard("ThreeHearts");
+		twoPairHand2.addCard("ThreeClubs");
+		twoPairHand2.addCard("FourDiamonds");
+		twoPairHand2.addCard("FourSpades");
+		twoPairHand2.addCard("TwoHearts");
+		twoPairHand2.calculateHandScore();
+		// should return 4, 3, 2 or (3, 2, 1)
+		ArrayList<Integer> tp2_scoreList = twoPairHand2.getComparativeScoreList();
+		assertEquals(3, tp2_scoreList.get(0).intValue());
+		assertEquals(2, tp2_scoreList.get(1).intValue());
+		assertEquals(1, tp2_scoreList.get(2).intValue());
+
+		// check aabcc
+		Hand twoPairHand3 = new Hand();
+		twoPairHand3.addCard("TwoHearts");
+		twoPairHand3.addCard("TwoClubs");
+		twoPairHand3.addCard("KingDiamonds");
+		twoPairHand3.addCard("KingSpades");
+		twoPairHand3.addCard("FourHearts");
+		twoPairHand3.calculateHandScore();
+		// should return K, 2, 4 or (12, 1, 3)
+		ArrayList<Integer> tp3_scoreList = twoPairHand3.getComparativeScoreList();
+		assertEquals(12, tp3_scoreList.get(0).intValue());
+		assertEquals(1, tp3_scoreList.get(1).intValue());
+		assertEquals(3, tp3_scoreList.get(2).intValue());
+		
+		
 	}
 	
 	public void testGetHandScore() {
