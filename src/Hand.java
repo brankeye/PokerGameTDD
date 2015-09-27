@@ -44,6 +44,20 @@ public class Hand {
 		return 1;
 	}
 	
+	public int isStraight() {
+		// get the score of each card in a list
+		ArrayList<Integer> scoreList = getSortedScoreList();
+		int currentScore = scoreList.get(0);
+		for(int i = 1; i < scoreList.size(); ++i) {
+			if(currentScore + 1 != scoreList.get(i)) {
+				return 0;
+			}
+			currentScore = scoreList.get(i);
+		}
+		
+		return 1;
+	}
+	
 	public ArrayList<Integer> getSortedScoreList() {
 		ArrayList<Integer> scoreList = new ArrayList<Integer>();
 		for(int i = 0; i < listOfCards.size(); ++i) {

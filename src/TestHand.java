@@ -22,6 +22,35 @@ public class TestHand extends TestCase {
 		assertEquals(0, firstHand.addCard("TwoClubs")); // adding more than 5 cards fails
 	}
 	
+	public void testIsStraightFlush() {
+		Hand straightFlushHand = new Hand();
+		// check for a straight flush
+		straightFlushHand.addCard("TwoHearts");
+		straightFlushHand.addCard("ThreeHearts");
+		straightFlushHand.addCard("FourHearts");
+		straightFlushHand.addCard("FiveHearts");
+		straightFlushHand.addCard("SixHearts");
+		assertEquals(1, straightFlushHand.isStraightFlush());
+		
+		Hand falseStraightFlushHand = new Hand();
+		// check for a false straight flush
+		falseStraightFlushHand.addCard("TwoHearts");
+		falseStraightFlushHand.addCard("ThreeHearts");
+		falseStraightFlushHand.addCard("FourHearts");
+		falseStraightFlushHand.addCard("FiveHearts");
+		falseStraightFlushHand.addCard("SevenHearts");
+		assertEquals(0, falseStraightFlushHand.isStraightFlush());
+		
+		Hand falseStraightFlushHandTwo = new Hand();
+		// check for a false straight flush
+		falseStraightFlushHandTwo.addCard("TwoHearts");
+		falseStraightFlushHandTwo.addCard("ThreeHearts");
+		falseStraightFlushHandTwo.addCard("FourHearts");
+		falseStraightFlushHandTwo.addCard("FiveHearts");
+		falseStraightFlushHandTwo.addCard("SixClubs");
+		assertEquals(0, falseStraightFlushHandTwo.isStraightFlush());
+	}
+	
 	public void testIsFlush() {
 		Hand flushHand = new Hand();
 		// check for a flush
