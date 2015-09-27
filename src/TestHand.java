@@ -131,6 +131,35 @@ public class TestHand extends TestCase {
 		assertEquals(0, falseStraightHand.isStraight());
 	}
 	
+	public void testIsThreeKind() {
+		Hand threeKindHand = new Hand();
+		// check for a three kind aaabc
+		threeKindHand.addCard("TwoHearts");
+		threeKindHand.addCard("TwoDiamonds");
+	    threeKindHand.addCard("TwoSpades");
+		threeKindHand.addCard("FiveClubs");
+		threeKindHand.addCard("SixHearts");
+		assertEquals(1, threeKindHand.isThreeKind());
+		
+		Hand otherThreeKindHand = new Hand();
+		// check for a three kind abbbc
+		otherThreeKindHand.addCard("TwoHearts");
+		otherThreeKindHand.addCard("ThreeDiamonds");
+	    otherThreeKindHand.addCard("ThreeSpades");
+		otherThreeKindHand.addCard("ThreeClubs");
+		otherThreeKindHand.addCard("SixHearts");
+		assertEquals(1, otherThreeKindHand.isThreeKind());
+		
+		Hand otherThreeKindHand2 = new Hand();
+		// check for a three kind abccc
+		otherThreeKindHand2.addCard("TwoHearts");
+		otherThreeKindHand2.addCard("ThreeDiamonds");
+	    otherThreeKindHand2.addCard("FourSpades");
+		otherThreeKindHand2.addCard("FourClubs");
+		otherThreeKindHand2.addCard("FourHearts");
+		assertEquals(1, otherThreeKindHand2.isThreeKind());
+	}
+	
 	public void testGetSortedScoreList() {
 		Hand firstHand = new Hand();
 		firstHand.addCard("TwoHearts");
