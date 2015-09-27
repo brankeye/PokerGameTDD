@@ -331,4 +331,16 @@ public class Hand {
 	}
 	public int    getHandScore()   { return score; }
 	public String getHandName()    { return handName; }
+	
+	public String getCardNameString() {
+		String cardNames = "";
+		for(int i = 0; i < listOfCards.size(); ++i) {
+			cardNames += listOfCards.get(i).getRank() + " of " + listOfCards.get(i).getSuit();
+			if(i < listOfCards.size() - 1) {
+				cardNames += ", ";
+			}
+		}
+		cardNames += ".";
+		return cardNames;
+	}
 }
