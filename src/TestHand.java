@@ -227,6 +227,17 @@ public class TestHand extends TestCase {
 		assertEquals(1, pairHand4.isPair());
 	}
 	
+	public void testGetHighCardScore() {
+		Hand highHand = new Hand();
+		// check for highest card
+		highHand.addCard("TwoHearts");
+		highHand.addCard("ThreeDiamonds");
+		highHand.addCard("FourSpades");
+		highHand.addCard("SixClubs");
+		highHand.addCard("KingHearts");
+		assertEquals(12, highHand.highCardScore()); // 2-Ace == 1-13
+	}
+	
 	public void testGetSortedScoreList() {
 		Hand firstHand = new Hand();
 		firstHand.addCard("TwoHearts");
