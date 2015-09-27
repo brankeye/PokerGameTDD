@@ -30,4 +30,13 @@ public class TestCard extends TestCase {
 		cardTwoHearts.storeRankSuit("TwoHearts");
 		assertEquals("Hearts", cardTwoHearts.getSuit());
 	}
+	
+	// the card score is an integer representation of the rank (2 Card is 1, Ace is 13)
+	public void testGetCardScore() {
+		Card cardTwoHearts = new Card();
+		cardTwoHearts.storeRankSuit("TwoHearts");
+		assertEquals(1, cardTwoHearts.getCardScore());
+		cardTwoHearts.storeRankSuit("ThreeHearts");
+		assertEquals(2, cardTwoHearts.getCardScore());
+	}
 }
