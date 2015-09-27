@@ -160,6 +160,35 @@ public class TestHand extends TestCase {
 		assertEquals(1, otherThreeKindHand2.isThreeKind());
 	}
 	
+	public void testIsTwoPair() {
+		Hand twoPairHand = new Hand();
+		// check for a two pair aabbc
+		twoPairHand.addCard("TwoHearts");
+		twoPairHand.addCard("TwoDiamonds");
+		twoPairHand.addCard("ThreeSpades");
+		twoPairHand.addCard("ThreeClubs");
+		twoPairHand.addCard("SixHearts");
+		assertEquals(1, twoPairHand.isTwoPair());
+		
+		Hand twoPairHand2 = new Hand();
+		// check for a two pair abbcc
+		twoPairHand2.addCard("TwoHearts");
+		twoPairHand2.addCard("ThreeDiamonds");
+		twoPairHand2.addCard("ThreeSpades");
+		twoPairHand2.addCard("FourClubs");
+		twoPairHand2.addCard("FourHearts");
+		assertEquals(1, twoPairHand2.isTwoPair());
+		
+		Hand twoPairHand3 = new Hand();
+		// check for a two pair aabcc
+		twoPairHand3.addCard("TwoHearts");
+		twoPairHand3.addCard("TwoDiamonds");
+		twoPairHand3.addCard("ThreeSpades");
+		twoPairHand3.addCard("FourClubs");
+		twoPairHand3.addCard("FourHearts");
+		assertEquals(1, twoPairHand3.isTwoPair());
+	}
+	
 	public void testGetSortedScoreList() {
 		Hand firstHand = new Hand();
 		firstHand.addCard("TwoHearts");
