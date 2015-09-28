@@ -11,4 +11,9 @@ public class TestRound extends TestCase {
 		Round round1 = new Round();
 		assertEquals(1, round1.promptNumberOfPlayers());
 	}
+	
+	public void testCreatePlayers() {
+		Round round1 = new Round();
+		assertEquals(2, round1.createPlayers(2));
+	}
 }

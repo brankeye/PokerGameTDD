@@ -34,4 +34,9 @@ public class Round {
     	return 1;
 	}
 
+	public int createPlayers(int i) {
+		
+		return i;
+	}
+
 }
