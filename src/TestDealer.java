@@ -1,10 +1,40 @@
 
+import java.util.ArrayList;
+
 import junit.framework.*;
 
 public class TestDealer extends TestCase {
 
 	public TestDealer(String testName) {
 		super(testName);
+	}
+	
+	public void testDealHand() {
+		Dealer dealer = new Dealer();
+		ArrayList<Player> newPlayerList = new ArrayList<Player>(0);
+		newPlayerList.add(new Player(0));
+		newPlayerList.add(new Player(1));
+		int result = dealer.dealHand("player0 TwoHearts ThreeHearts KingClubs QueenClubs FiveDiamonds", newPlayerList);
+		assertEquals(1, result);
+		
+		ArrayList<Player> newPlayerList2 = new ArrayList<Player>(0);
+		newPlayerList2.add(new Player(0));
+		newPlayerList2.add(new Player(1));
+		int result2 = dealer.dealHand("player0 TwoHeartsssssss ThreeHearts KingClubs QueenClubs FiveDiamonds", newPlayerList2);
+		assertEquals(0, result2);
+		
+		ArrayList<Player> newPlayerList3 = new ArrayList<Player>(0);
+		newPlayerList3.add(new Player(0));
+		newPlayerList3.add(new Player(1));
+		int result3 = dealer.dealHand("player3 TwoHearts ThreeHearts KingClubs QueenClubs FiveDiamonds", newPlayerList3);
+		
+		assertEquals(0, result3);
+		
+		ArrayList<Player> newPlayerList4 = new ArrayList<Player>(0);
+		newPlayerList4.add(new Player(0));
+		newPlayerList4.add(new Player(1));
+		int result4 = dealer.dealHand("player0 ThreeHearts KingClubs QueenClubs FiveDiamonds", newPlayerList4);
+		assertEquals(0, result4);
 	}
 	
 	public void testParsePlayerID() {
