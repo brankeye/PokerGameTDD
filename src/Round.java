@@ -37,11 +37,18 @@ public class Round {
     	return 1;
 	}
 
-	public int createPlayers(int nPlayers) {
-		for(int i = 0; i < nPlayers; ++i) {
-			playerList.add(new Player());
+	public int createPlayers() {
+		for(int i = 0; i < numPlayers; ++i) {
+			playerList.add(new Player(i));
 		}
 		return playerList.size();
 	}
-
+	
+	public ArrayList<String> getPlayerNames() {
+		ArrayList<String> names = new ArrayList<String>(0);
+		for(int i = 0; i < numPlayers; ++i) {
+			names.add(playerList.get(i).getPlayerName());
+		}
+		return names;
+	}
 }

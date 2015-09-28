@@ -2,9 +2,11 @@ import java.util.ArrayList;
 
 public class Player {
 
-	Hand playerHand;
+	private String name;
+	private Hand   playerHand;
 	
-	public Player() {
+	public Player(int id) {
+		name = "player" + String.valueOf(id);
 		playerHand = new Hand();
 	}
 	
@@ -21,6 +23,7 @@ public class Player {
 		return playerHand.getHandScore();
 	}
 
+	public String getPlayerName() { return name; }
 	public String getHandString() { return playerHand.getCardNameString(); }
 	public ArrayList<Integer> getComparativeScoreList() { return playerHand.getComparativeScoreList(); }
 }

@@ -10,7 +10,7 @@ public class TestPlayer extends TestCase {
 	}
 	
 	public void testGivePlayerHand() {
-		Player player1 = new Player();
+		Player player1 = new Player(0);
 		Hand flushHand = new Hand();
 		assertEquals(0, player1.giveHand(flushHand));
 		// check for a flush
@@ -23,7 +23,7 @@ public class TestPlayer extends TestCase {
 	}
 	
 	public void testGetPlayerHandName() {
-		Player player1 = new Player();
+		Player player1 = new Player(0);
 		Hand flushHand = new Hand();
 		// check for a flush
 		flushHand.addCard("TwoHearts");
@@ -36,7 +36,7 @@ public class TestPlayer extends TestCase {
 	}
 	
 	public void testGetPlayerScore() {
-		Player player1 = new Player();
+		Player player1 = new Player(0);
 		Hand flushHand = new Hand();
 		// check for a flush
 		flushHand.addCard("TwoHearts");
@@ -49,7 +49,7 @@ public class TestPlayer extends TestCase {
 	}
 	
 	public void testGetPlayerComparativeScoreList() {
-		Player player1 = new Player();
+		Player player1 = new Player(0);
 		Hand flushHand = new Hand();
 		// check for a flush
 		flushHand.addCard("TwoHearts");
