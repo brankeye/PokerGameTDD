@@ -2,6 +2,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Dealer {
+	
+	Deck deck;
+	
+	public Dealer() {
+		deck = new Deck();
+	}
 
 	public int dealHand(String data, ArrayList<Player> playerList) {
 		// parse hand to be dealt
@@ -10,6 +16,8 @@ public class Dealer {
 		
 		Hand   player_hand = new Hand();
 		if(parsePlayerCards(player_hand, data) == 0) return 0;
+		
+		
 		
 		// then deal the player the cards
 		for(int i = 0; i < playerList.size(); ++i) {

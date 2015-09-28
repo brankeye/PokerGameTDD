@@ -600,4 +600,16 @@ public class TestHand extends TestCase {
 		royalFlushHand.addCard("TenHearts");
 		assertEquals("Ace of Hearts, King of Hearts, Queen of Hearts, Jack of Hearts, Ten of Hearts.", royalFlushHand.getCardNameString());
 	}
+	
+	public void testGetCardList() {
+		ArrayList<Card> cardList = new ArrayList<Card>(0);
+		Hand royalFlushHand = new Hand();
+		royalFlushHand.addCard("AceHearts");
+		royalFlushHand.addCard("KingHearts");
+		royalFlushHand.addCard("QueenHearts");
+		royalFlushHand.addCard("JackHearts");
+		royalFlushHand.addCard("TenHearts");
+		royalFlushHand.getCardList(cardList);
+		assertEquals(5, cardList.size());
+	}
 }

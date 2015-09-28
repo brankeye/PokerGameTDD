@@ -343,4 +343,9 @@ public class Hand {
 		cardNames += ".";
 		return cardNames;
 	}
+
+	public int getCardList(ArrayList<Card> cardList) {
+		
+		return 1;
+	}
 }
