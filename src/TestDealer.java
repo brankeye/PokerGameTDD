@@ -12,4 +12,10 @@ public class TestDealer extends TestCase {
 		String pid = dealer.parsePlayerID("player0 TwoHearts ThreeHearts KingClubs QueenClubs FiveDiamonds");
 		assertEquals("player0", pid);
 	}
+	
+	public void testParseCards() {
+		Dealer dealer = new Dealer();
+		Hand cards = dealer.parsePlayerCards("player0 TwoHearts ThreeHearts KingClubs QueenClubs FiveDiamonds");
+		assertEquals("TwoHearts, ThreeHearts, KingClubs, QueenClubs, FiveDiamonds.", cards.getCardNameString());
+	}
 }

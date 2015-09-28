@@ -7,4 +7,8 @@ public class Dealer {
 		return parsed[0];
 	}
 
+	public Hand parsePlayerCards(String data) {
+		return new Hand();
+	}
+
 }
