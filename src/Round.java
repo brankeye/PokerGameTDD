@@ -15,7 +15,14 @@ public class Round {
 		playerList = new ArrayList<Player>(0);
 		scanner = new Scanner(System.in);
 		numPlayers = 0;
-		roundNum = 0;
+		roundNum = 1;
+	}
+	
+	public int playRound() {
+		System.out.println("Now playing Round " + roundNum++);
+		if(promptNumberOfPlayers() == 0) return 0; 
+		if(promptPlayerHands() == 0) return 0;
+		return 1;
 	}
 
 	public int promptNumberOfPlayers() {
@@ -74,5 +81,37 @@ public class Round {
 			names.add(playerList.get(i).getPlayerName());
 		}
 		return names;
+	}
+
+	public int determineWinner() {
+		System.out.println("THE LEADERBOARD");
+		int[] winList = new int[playerList.size()];
+		
+		for(int i = 0; i < playerList.size(); ++i) {
+			winList[i] = playerList.size(); // current players rank in leaderboards
+			for(int k = 0; k < playerList.size(); ++k) {
+				if(k != i) {
+					if(playerList.get(i).getHandScore() > playerList.get(k).getHandScore()) {
+						winList[i]--;
+					} else if(playerList.get(i).getHandScore() == playerList.get(k).getHandScore()) {
+						ArrayList<Integer> cList_A = playerList.get(i).getComparativeScoreList();
+						ArrayList<Integer> cList_B = playerList.get(k).getComparativeScoreList();
+						for(int j = 0; j < cList_A.size(); ++j) {
+							if(cList_A.get(j).intValue() > cList_B.get(j).intValue()) {
+								winList[i]--;
+								break;
+							}
+							if(j == cList_A.size() - 1) winList[i]--; 
+						}
+					}
+				}
+			}
+		}
+	
+		for(int i = 0; i < playerList.size(); ++i) {
+			System.out.println(winList[i] + ": " + playerList.get(i).getPlayerName() + " with a " + playerList.get(i).getHandName());
+		}
+		
+		return 1;
 	}
 }

@@ -9,15 +9,26 @@ public class TestRound extends TestCase {
 		super(testName);
 	}
 	
+	public void testPlayRound() {
+		//Round round1 = new Round();
+		//assertEquals(1, round1.playRound());
+	}
+	
+	public void testDetermineWinner() {
+		Round round1 = new Round();
+		round1.playRound();
+		assertEquals(1, round1.determineWinner());
+	}
+	
 	public void testPromptNumberOfPlayers() {
 		//Round round1 = new Round();
 		//assertEquals(1, round1.promptNumberOfPlayers());
 	}
 	
 	public void testPromptPlayerHands() {
-		Round round1 = new Round();
-		round1.promptNumberOfPlayers();
-		assertEquals(1, round1.promptPlayerHands());
+		//Round round1 = new Round();
+		//round1.promptNumberOfPlayers();
+		//assertEquals(1, round1.promptPlayerHands());
 	}
 	
 	public void testCreatePlayers() {
