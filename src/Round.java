@@ -1,13 +1,16 @@
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Round {
 	
+	ArrayList<Player> playerList;
 	private static Scanner scanner;
 	private int numPlayers;
 	private static int roundNum;
 	
 	public Round() {
+		playerList = new ArrayList<Player>(0);
 		scanner = new Scanner(System.in);
 		numPlayers = 0;
 		roundNum = 0;
@@ -34,9 +37,11 @@ public class Round {
     	return 1;
 	}
 
-	public int createPlayers(int i) {
-		
-		return i;
+	public int createPlayers(int nPlayers) {
+		for(int i = 0; i < nPlayers; ++i) {
+			playerList.add(new Player());
+		}
+		return playerList.size();
 	}
 
 }
