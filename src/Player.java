@@ -21,5 +21,6 @@ public class Player {
 		return playerHand.getHandScore();
 	}
 
+	public String getHandString() { return playerHand.getCardNameString(); }
 	public ArrayList<Integer> getComparativeScoreList() { return playerHand.getComparativeScoreList(); }
 }
