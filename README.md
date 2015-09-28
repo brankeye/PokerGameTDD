@@ -9,6 +9,13 @@ Name: Brandon Keyes
 Student Number: 100 897 196
 Link to GitHub project: https://github.com/brankeye/PokerGameTDD
 
+----------------Running Instructions
+
+--I've included both a Main.java class with a main function for running the program standardly and
+--the JUnitTestSuite.java class to handle all TestClasses in my program. I assume you'll only need to
+--run the test suite though. Clone the project to your workspace, then launch it in Eclipse. Locate
+--the test suite class and run it.
+
 ----------------Test Methods
 
 --------TestCard
@@ -56,5 +63,3 @@ Link to GitHub project: https://github.com/brankeye/PokerGameTDD
 --------TestGame
 
 --testPlayGame
-
-----------------Instructions
