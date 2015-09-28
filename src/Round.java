@@ -126,8 +126,14 @@ public class Round {
 			}
 		}
 	
-		for(int i = 0; i < playerList.size(); ++i) {
-			System.out.println("Ranked " + winList[i] + ": " + playerList.get(i).getPlayerName() + " with a " + playerList.get(i).getHandName());
+		int place = 1;
+		while(place <= playerList.size()) {
+			for(int i = 0; i < playerList.size(); ++i) {
+				if(winList[i] == place) {
+					System.out.println("Ranked " + place + " (" + playerList.get(i).getHandName() + "): " + playerList.get(i).getPlayerName() + " with " + playerList.get(i).getHandString());
+				}
+			}
+			place++;
 		}
 		
 		return 1;
