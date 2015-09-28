@@ -14,11 +14,13 @@ public class TestRound extends TestCase {
 		//assertEquals(1, round1.playRound());
 	}
 	
+	/*
 	public void testDetermineWinner() {
 		Round round1 = new Round();
 		round1.playRound();
 		assertEquals(1, round1.determineWinner());
 	}
+	*/
 	
 	public void testPromptNumberOfPlayers() {
 		//Round round1 = new Round();

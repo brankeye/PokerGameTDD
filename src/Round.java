@@ -106,20 +106,20 @@ public class Round {
 		int[] winList = new int[playerList.size()];
 		
 		for(int i = 0; i < playerList.size(); ++i) {
-			winList[i] = playerList.size(); // current players rank in leaderboards
+			winList[i] = 1; // current players rank in leaderboards
 			for(int k = 0; k < playerList.size(); ++k) {
 				if(k != i) {
-					if(playerList.get(i).getHandScore() > playerList.get(k).getHandScore()) {
-						winList[i]--;
+					if(playerList.get(i).getHandScore() < playerList.get(k).getHandScore()) {
+						winList[i]++;
 					} else if(playerList.get(i).getHandScore() == playerList.get(k).getHandScore()) {
 						ArrayList<Integer> cList_A = playerList.get(i).getComparativeScoreList();
 						ArrayList<Integer> cList_B = playerList.get(k).getComparativeScoreList();
 						for(int j = 0; j < cList_A.size(); ++j) {
-							if(cList_A.get(j).intValue() > cList_B.get(j).intValue()) {
-								winList[i]--;
+							if(cList_A.get(j).intValue() < cList_B.get(j).intValue()) {
+								winList[i]++;
 								break;
 							}
-							if(j == cList_A.size() - 1) winList[i]--; 
+							//if(j == cList_A.size() - 1) winList[i]--; 
 						}
 					}
 				}
@@ -127,7 +127,7 @@ public class Round {
 		}
 	
 		for(int i = 0; i < playerList.size(); ++i) {
-			System.out.println(winList[i] + ": " + playerList.get(i).getPlayerName() + " with a " + playerList.get(i).getHandName());
+			System.out.println("Ranked " + winList[i] + ": " + playerList.get(i).getPlayerName() + " with a " + playerList.get(i).getHandName());
 		}
 		
 		return 1;
