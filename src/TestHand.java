@@ -609,7 +609,7 @@ public class TestHand extends TestCase {
 		royalFlushHand.addCard("QueenHearts");
 		royalFlushHand.addCard("JackHearts");
 		royalFlushHand.addCard("TenHearts");
-		royalFlushHand.getCardList(cardList);
+		cardList = royalFlushHand.getCardList();
 		assertEquals(5, cardList.size());
 	}
 }

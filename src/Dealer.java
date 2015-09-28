@@ -17,7 +17,10 @@ public class Dealer {
 		Hand   player_hand = new Hand();
 		if(parsePlayerCards(player_hand, data) == 0) return 0;
 		
-		
+		if(withinDeck(player_hand) == 1) return 0;
+		for(int i = 0; i < player_hand.getCardList().size(); ++i) {
+			deck.addCard(player_hand.getCardList().get(i));
+		}
 		
 		// then deal the player the cards
 		for(int i = 0; i < playerList.size(); ++i) {
@@ -27,6 +30,20 @@ public class Dealer {
 			}
 		}
 		return 0; // 0 fail, 1 success
+	}
+	
+	public int withinDeck(Hand hand) {
+		ArrayList<Card> cList = hand.getCardList();
+		for(int i = 0; i < cList.size(); ++i) {
+			if(withinDeck(cList.get(i)) == 1) return 1; 
+		}
+		
+		return 0;
+	}
+	
+	public int withinDeck(Card givenCard) {
+		if(deck.hasCard(givenCard) == 1) return 1;
+		return 0;
 	}
 	
 	public int parsePlayerID(StringBuilder name, String data) {

@@ -16,6 +16,9 @@ public class TestDealer extends TestCase {
 		newPlayerList.add(new Player(1));
 		int result = dealer.dealHand("player0 TwoHearts ThreeHearts KingClubs QueenClubs FiveDiamonds", newPlayerList);
 		assertEquals(1, result);
+		// dupes fail
+		int result1 = dealer.dealHand("player1 TwoHearts ThreeHearts KingClubs QueenClubs FiveDiamonds", newPlayerList);
+		assertEquals(0, result1);
 		
 		ArrayList<Player> newPlayerList2 = new ArrayList<Player>(0);
 		newPlayerList2.add(new Player(0));
@@ -35,6 +38,17 @@ public class TestDealer extends TestCase {
 		newPlayerList4.add(new Player(1));
 		int result4 = dealer.dealHand("player0 ThreeHearts KingClubs QueenClubs FiveDiamonds", newPlayerList4);
 		assertEquals(0, result4);
+	}
+	
+	public void testWithinDeck() {
+		Dealer dealer = new Dealer();
+		Hand hand = new Hand();
+		hand.addCard("TwoHearts");
+		hand.addCard("ThreeHearts");
+		hand.addCard("FourHearts");
+		hand.addCard("FiveHearts");
+		hand.addCard("SixHearts");
+		assertEquals(0, dealer.withinDeck(hand));
 	}
 	
 	public void testParsePlayerID() {
