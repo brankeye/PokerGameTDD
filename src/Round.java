@@ -51,4 +51,17 @@ public class Round {
 		}
 		return names;
 	}
+
+	public int promptPlayerHands() {
+		// request player hands
+    	int dealed = 0;
+    	int handsDealt = 0;
+    	String userInput = "";
+    	System.out.println("Enter a player's cards by the format 'PlayerID RankSuit RankSuit RankSuit RankSuit RankSuit'");
+    	do {
+    		userInput = scanner.nextLine();
+    		handsDealt++;
+    	} while(handsDealt < numPlayers);
+    	return 1;
+	}
 }
