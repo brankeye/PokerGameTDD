@@ -33,6 +33,7 @@ public class Round {
     		}
     		
     	} while(numPlayers < 2 || numPlayers > 4);
+    	scanner.nextLine(); // blank nextLine to capture newline character leftover
     	
     	createPlayers();
     	System.out.println("There are " + numPlayers + " players in this round.");
@@ -46,8 +47,16 @@ public class Round {
     	String userInput = "";
     	System.out.println("Enter a player's cards by the format 'PlayerID RankSuit RankSuit RankSuit RankSuit RankSuit'");
     	do {
+    		while(!scanner.hasNextLine()) {
+    			scanner.next();
+    		}
     		userInput = scanner.nextLine();
-    		if(dealer.dealHand(userInput, playerList) == 1) handsDealt++;
+    		if(dealer.dealHand(userInput, playerList) == 1) {
+    			System.out.println("Cards dealt successfully.");
+    			handsDealt++;
+    		} else {
+    			System.out.println("Invalid input.");
+    		}
     	} while(handsDealt < numPlayers);
     	return 1;
 	}
