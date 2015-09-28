@@ -4,12 +4,14 @@ import java.util.Scanner;
 
 public class Round {
 	
+	Dealer dealer;
 	ArrayList<Player> playerList;
 	private static Scanner scanner;
 	private int numPlayers;
 	private static int roundNum;
 	
 	public Round() {
+		dealer = new Dealer();
 		playerList = new ArrayList<Player>(0);
 		scanner = new Scanner(System.in);
 		numPlayers = 0;
@@ -32,12 +34,25 @@ public class Round {
     		
     	} while(numPlayers < 2 || numPlayers > 4);
     	
+    	createPlayers();
     	System.out.println("There are " + numPlayers + " players in this round.");
     	
     	return 1;
 	}
+	
+	public int promptPlayerHands() {
+		// request player hands
+    	int handsDealt = 0;
+    	String userInput = "";
+    	System.out.println("Enter a player's cards by the format 'PlayerID RankSuit RankSuit RankSuit RankSuit RankSuit'");
+    	do {
+    		userInput = scanner.nextLine();
+    		if(dealer.dealHand(userInput, playerList) == 1) handsDealt++;
+    	} while(handsDealt < numPlayers);
+    	return 1;
+	}
 
-	public int createPlayers() {
+	private int createPlayers() {
 		for(int i = 0; i < numPlayers; ++i) {
 			playerList.add(new Player(i));
 		}
@@ -50,18 +65,5 @@ public class Round {
 			names.add(playerList.get(i).getPlayerName());
 		}
 		return names;
-	}
-
-	public int promptPlayerHands() {
-		// request player hands
-    	int dealed = 0;
-    	int handsDealt = 0;
-    	String userInput = "";
-    	System.out.println("Enter a player's cards by the format 'PlayerID RankSuit RankSuit RankSuit RankSuit RankSuit'");
-    	do {
-    		userInput = scanner.nextLine();
-    		handsDealt++;
-    	} while(handsDealt < numPlayers);
-    	return 1;
 	}
 }
