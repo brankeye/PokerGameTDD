@@ -22,7 +22,21 @@ public class Round {
 		System.out.println("Now playing Round " + roundNum++);
 		if(promptNumberOfPlayers() == 0) return 0; 
 		if(promptPlayerHands() == 0) return 0;
-		return 1;
+		if(determineWinner() == 0) return 0;
+		
+		String userInput = "";
+		System.out.println("Would you like to play again? (y/n): ");
+		do {
+			while(!scanner.hasNextLine()) {
+				scanner.next();
+				System.out.println("Incorrect input, only (y/n).");
+			}
+			userInput = scanner.nextLine();
+		} while(!userInput.equals("y") && !userInput.equals("n"));
+		
+		if(userInput.equals("y")) return 1;
+		
+		return 0;
 	}
 
 	public int promptNumberOfPlayers() {
@@ -44,6 +58,10 @@ public class Round {
     	
     	createPlayers();
     	System.out.println("There are " + numPlayers + " players in this round.");
+    	System.out.println("Here are the player IDs:");
+    	for(int k = 0; k < playerList.size(); ++k) {
+    		System.out.println(playerList.get(k).getPlayerName());
+    	}
     	
     	return 1;
 	}

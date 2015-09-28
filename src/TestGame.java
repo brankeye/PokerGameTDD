@@ -9,6 +9,6 @@ public class TestGame extends TestCase {
 	
 	public void testPlayGame() {
 		Game game = new Game();
-		assertEquals(1, game.playGame());
+		assertEquals(0, game.playGame());
 	}
 }
